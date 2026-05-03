@@ -37,6 +37,7 @@ def train_model(model, train_loader, val_loader, n_epochs, device, optimizer, cr
             makedirs(checkpoint_path, exist_ok=True)
             torch.save({
                 'model_state_dict': model.state_dict(),
+                'mae': best_val_loss
             }, path.join(checkpoint_path, f"checkpoint{epoch}.pth"))
 
         else:

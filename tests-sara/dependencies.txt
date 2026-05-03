@@ -1,10 +1,10 @@
 kagglehub
 
-torch
 torchvision
 numpy
 pandas
-Pillow
 matplotlib
+Pillow
 scikit-learn
 tqdm
+jupyter
