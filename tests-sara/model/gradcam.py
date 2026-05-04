@@ -44,9 +44,9 @@ class GradCAM:
         grads = self.gradients
         activations = self.activations
 
-        weights = grads.mean(dim = (2,3), keepdim = True)
-        cam = (weights * activations).sum(dim = 1, keepdim = True)
-        cam = (cam - cam.min()) / (cam.max() - cam.min() + 1e-8)
+        weights = grads.mean(dim = (2,3), keepdim = True) # importance weigths / avg the grads spatially
+        cam = (weights * activations).sum(dim = 1, keepdim = True) # weighted sum
+        cam = (cam - cam.min()) / (cam.max() - cam.min() + 1e-8) # normalized
 
         return cam
 
@@ -56,15 +56,25 @@ class GradCAM:
         #cam_resized = cv2.resize(cam, (image.shape[3], image.shape[2]))
 
         # print(f"cam: dtype {cam.dtype}, shape: {cam.shape}")
-
+        """
         cam_resized = F.interpolate(
             cam,
             size=image_size,
             mode='bilinear',
             align_corners=False
         )
+        """
 
         
+        cam_resized = F.interpolate(cam, scale_factor=2, mode='bilinear')
+        cam_resized = F.interpolate(cam_resized, scale_factor=2, mode='bilinear')
+        cam_resized = F.interpolate(cam_resized, size=image_size, mode='bilinear')
+        
+
+        # cam_resized = F.interpolate(cam, size=image_size, mode='bicubic', align_corners=False)
+        #cam_resized = F.avg_pool2d(cam, kernel_size=7, stride=1, padding=3)
+
+
         cam_resized = cam_resized.squeeze().detach().numpy()
         #print(f"cam resized: dtype {cam_resized.dtype}, shape: {cam_resized.shape}")
         

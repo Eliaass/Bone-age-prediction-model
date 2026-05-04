@@ -47,8 +47,9 @@ def train_model(model, train_loader, val_loader, n_epochs, device, optimizer, cr
             print("Early stopping")
             break
         
-    for param_model, param_best in zip(model.parameters(), best_model.parameters()):
-        param_model.data = param_best.data
+    if best_model is not None:
+        for param_model, param_best in zip(model.parameters(), best_model.parameters()):
+            param_model.data = param_best.data
     
     return train_losses, val_losses
 

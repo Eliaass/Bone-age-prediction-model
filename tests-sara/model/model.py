@@ -1,6 +1,7 @@
 from torchvision.models import resnet18, ResNet18_Weights
 import torch.nn as nn
 import torch
+import timm
 
 class BAA_resnet18(nn.Module):
     def __init__(self):
@@ -25,9 +26,6 @@ class BAA_resnet18(nn.Module):
         self.backbone.fc = nn.Identity()
         self.regression_head = nn.Linear(last_width + 1, 1)
 
-        # specify the target layer for gradcam inside the model class to simplify testing different models
-        # target layer needs to be the last convolutional layer: for resnet18, final block of layers is 4, n we want last layer only
-        self.gradcam_target_layer = self.backbone.layer4[-1]
 
     def forward(self, img_tensor, gender_tensor):
         features = self.backbone(img_tensor)
@@ -37,3 +35,21 @@ class BAA_resnet18(nn.Module):
         out = self.regression_head(fc_input)
 
         return out.squeeze(1)
+
+
+class BoneAgeEfficientNet(nn.Module):
+    def __init__(self, model_name, pretrained=True, drop_path_rate=0.1, head_dropout=0.2, hidden_dim=1024):
+        super().__init__()
+        self.backbone = timm.create_model(model_name, pretrained=pretrained, num_classes=0, global_pool="avg", drop_path_rate=drop_path_rate)
+        feature_dim = self.backbone.num_features
+        self.regression_head = nn.Sequential(
+            nn.Linear(feature_dim + 1, hidden_dim), nn.SiLU(), nn.Dropout(head_dropout), nn.Linear(hidden_dim, 1)
+        )
+    def forward(self, image, male):
+        features = self.backbone(image)
+
+        male = male.unsqueeze(1)
+
+        x = torch.cat([features, male], dim=1)
+
+        return self.regression_head(x).squeeze(1)
