@@ -24,3 +24,15 @@ def get_transforms(target_size, color_channels_nb = 1):
         transforms.Normalize(mean=norm_mean, std=norm_std),
         #contrast(),
     ])
+
+def get_min_transforms(color_channels_nb = 1):
+    norm_mean = (0.5)
+    norm_std = (0.5)
+    if color_channels_nb == 3:
+        norm_mean = [0.485, 0.456, 0.406]
+        norm_std = [0.229, 0.224, 0.225]
+
+    return transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize(mean=norm_mean, std=norm_std),
+    ])
