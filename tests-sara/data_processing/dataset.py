@@ -36,8 +36,9 @@ class BAA_Dataset(torch.utils.data.Dataset):
         
         gender = torch.tensor(row["male"], dtype=torch.float32)
         age = torch.tensor(row["boneage"], dtype=torch.float32)
+        idx = torch.tensor(row["id"], dtype=torch.int32).item()
 
-        return img, gender, age
+        return img, gender, age, idx
     
     def __len__(self):
         return self.n
@@ -62,7 +63,6 @@ class BAA_Dataset(torch.utils.data.Dataset):
         if self.transforms is not None:
             img = self.transforms(img) #apply transforms
 
-        print(f"get image: done - img shape = {np.asarray(img).shape}")
 
             
 

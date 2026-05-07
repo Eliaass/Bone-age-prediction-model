@@ -27,12 +27,12 @@ def get_BAA_DFS(datapath = None, image_folder = "images", apply_segmentation = F
 
     # 3) convert feature to float
     df["male"] = df["male"].astype(float)
-    print("checking apply seg:")
+
     # 4) add image and mask path to df: if it leads to no file, get rid of row
     if apply_segmentation:
         df["img_path"] = df["id"].apply(lambda id: path.join(img_path, f"{id}_segmented.png"))
         df["mask_path"] = df["id"].apply(lambda id: path.join(img_path, f"{id}_mask.png"))
-        print("checking apply seg:")
+
         df = df[ df["mask_path"].map(has_hand_mask) ]
 
     else:

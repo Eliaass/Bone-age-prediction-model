@@ -8,7 +8,7 @@ def evaluate(model, val_loader, device, criterion):
     total_samples = 0
 
     with torch.no_grad():
-        for imgs, genders, ages in tqdm(val_loader):
+        for imgs, genders, ages, _ in tqdm(val_loader):
 
             imgs = imgs.to(device)
             genders = genders.to(device)
