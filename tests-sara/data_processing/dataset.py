@@ -2,6 +2,7 @@ import torch
 from PIL import Image
 from os import path, listdir
 import numpy as np
+from torchvision import transforms
 
 """ BAA Dataset Class
 
@@ -18,7 +19,7 @@ class BAA_Dataset(torch.utils.data.Dataset):
         self.df = df
         self.n = df.shape[0]
         self.transforms = transforms
-        
+
         self.apply_segmentation = apply_segmentation
         self.mask_thresh = 120
 
@@ -35,19 +36,21 @@ class BAA_Dataset(torch.utils.data.Dataset):
         
         gender = torch.tensor(row["male"], dtype=torch.float32)
         age = torch.tensor(row["boneage"], dtype=torch.float32)
+        idx = torch.tensor(row["id"], dtype=torch.int32).item()
 
-        return img, gender, age
+        return img, gender, age, idx
     
     def __len__(self):
         return self.n
 
     def get_image(self, row):  
 
-        img = Image.open(row["img_path"]).convert("L")
+        img = Image.open(row["img_path"]).convert("RGB")
+
 
         if self.apply_segmentation:
 
-            mask = Image.open(row["mask_path"]).convert("L")
+            mask = Image.open(row["mask_path"]).convert("RGB")
 
             img = np.array(img)
             mask = np.array(mask)
@@ -56,8 +59,13 @@ class BAA_Dataset(torch.utils.data.Dataset):
 
             img = Image.fromarray(img)
 
+
         if self.transforms is not None:
             img = self.transforms(img) #apply transforms
+
+
+            
+
         
         return img
 
@@ -75,6 +83,6 @@ class BAA_Dataset(torch.utils.data.Dataset):
             gender = torch.tensor(row["male"], dtype=torch.float32)
             age = torch.tensor(row["boneage"], dtype=torch.float32)
             idx = torch.tensor(row["id"], dtype=torch.int32)
-            output.append( (img, gender, age, idx) )
+            output.append( (img, gender, age, idx.item()) )
 
         return output

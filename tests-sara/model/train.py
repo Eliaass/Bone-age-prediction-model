@@ -59,7 +59,7 @@ def train_epoch(model, train_loader, device, optimizer, criterion):
     total_loss = 0
     total_samples = 0
 
-    for imgs, genders, ages in tqdm(train_loader):
+    for imgs, genders, ages, _ in tqdm(train_loader):
 
         imgs = imgs.to(device)
         genders = genders.to(device)
