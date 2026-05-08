@@ -1,4 +1,4 @@
-import kagglehub
+
 from os import path, listdir
 
 import pandas as pd
@@ -8,7 +8,7 @@ from PIL import Image
 import numpy as np
 
 
-def get_BAA_DFS(datapath = None, image_folder = "images", apply_segmentation = False):
+def get_BAA_DFS(seed, datapath = None, image_folder = "images", apply_segmentation = False):
 
     # 1) get RSNA dataset: thru kagglehub if not found in folders
     df_path = path.join(datapath, "boneage-training-dataset.csv")
@@ -16,11 +16,16 @@ def get_BAA_DFS(datapath = None, image_folder = "images", apply_segmentation = F
 
     
     if datapath is None or not path.exists(img_path):
+
+        print(f"download the rsna dataset at: {img_path}")
+        return
+        """
         datapath = kagglehub.dataset_download("kmader/rsna-bone-age")
         print(f"Path to dataset files: {datapath}")
 
         img_path = path.join(datapath, "boneage-training-dataset", "boneage-training-dataset")
         df_path = path.join(datapath, "boneage-training-dataset.csv")
+        """
 
     # 2) convert to a DF    
     df = pd.read_csv(df_path, delimiter=",")
@@ -43,7 +48,7 @@ def get_BAA_DFS(datapath = None, image_folder = "images", apply_segmentation = F
     print("finished checking")
 
     # 5) train/val split
-    train_df, val_df = train_test_split(df, test_size = 0.2, random_state = 42)
+    train_df, val_df = train_test_split(df, test_size = 0.2, random_state = seed)
     print(f"\nFull df size len: {df.shape[0]}\ntrain/val sizes: {train_df.shape[0]}/{val_df.shape[0]}")
 
     return train_df, val_df
