@@ -1,0 +1,477 @@
+=== Job started ===
+Job ID: 3705085
+Host: gnode25
+Date: Fri May  8 10:32:04 PM CEST 2026
+=== Loaded modules ===
+=== Python environment ===
+CWD: /storage/homefs/eb19p026/DL_Project
+Python: /storage/homefs/eb19p026/DL_Project/venv/bin/python
+Python 3.11.3
+Requirement already satisfied: pip in ./venv/lib/python3.11/site-packages (26.1.1)
+Looking in indexes: https://download.pytorch.org/whl/cu126, https://pypi.org/simple
+Requirement already satisfied: torch in ./venv/lib/python3.11/site-packages (from -r requirements.txt (line 2)) (2.11.0+cu126)
+Requirement already satisfied: torchvision in ./venv/lib/python3.11/site-packages (from -r requirements.txt (line 3)) (0.26.0+cu126)
+Requirement already satisfied: torchaudio in ./venv/lib/python3.11/site-packages (from -r requirements.txt (line 4)) (2.11.0+cu126)
+Requirement already satisfied: timm in ./venv/lib/python3.11/site-packages (from -r requirements.txt (line 7)) (1.0.26)
+Requirement already satisfied: optuna in ./venv/lib/python3.11/site-packages (from -r requirements.txt (line 8)) (4.8.0)
+Requirement already satisfied: numpy in ./venv/lib/python3.11/site-packages (from -r requirements.txt (line 9)) (2.4.4)
+Requirement already satisfied: pandas in ./venv/lib/python3.11/site-packages (from -r requirements.txt (line 10)) (3.0.2)
+Requirement already satisfied: scikit-learn in ./venv/lib/python3.11/site-packages (from -r requirements.txt (line 11)) (1.8.0)
+Requirement already satisfied: matplotlib in ./venv/lib/python3.11/site-packages (from -r requirements.txt (line 12)) (3.10.9)
+Requirement already satisfied: pillow in ./venv/lib/python3.11/site-packages (from -r requirements.txt (line 13)) (12.2.0)
+Requirement already satisfied: tqdm in ./venv/lib/python3.11/site-packages (from -r requirements.txt (line 14)) (4.67.3)
+Requirement already satisfied: filelock in ./venv/lib/python3.11/site-packages (from torch->-r requirements.txt (line 2)) (3.29.0)
+Requirement already satisfied: typing-extensions>=4.10.0 in ./venv/lib/python3.11/site-packages (from torch->-r requirements.txt (line 2)) (4.15.0)
+Requirement already satisfied: setuptools<82 in ./venv/lib/python3.11/site-packages (from torch->-r requirements.txt (line 2)) (65.5.0)
+Requirement already satisfied: sympy>=1.13.3 in ./venv/lib/python3.11/site-packages (from torch->-r requirements.txt (line 2)) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in ./venv/lib/python3.11/site-packages (from torch->-r requirements.txt (line 2)) (3.6.1)
+Requirement already satisfied: jinja2 in ./venv/lib/python3.11/site-packages (from torch->-r requirements.txt (line 2)) (3.1.6)
+Requirement already satisfied: fsspec>=0.8.5 in ./venv/lib/python3.11/site-packages (from torch->-r requirements.txt (line 2)) (2026.4.0)
+Requirement already satisfied: cuda-toolkit==12.6.3 in ./venv/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->-r requirements.txt (line 2)) (12.6.3)
+Requirement already satisfied: cuda-bindings<13,>=12.9.4 in ./venv/lib/python3.11/site-packages (from torch->-r requirements.txt (line 2)) (12.9.6)
+Requirement already satisfied: nvidia-cudnn-cu12==9.10.2.21 in ./venv/lib/python3.11/site-packages (from torch->-r requirements.txt (line 2)) (9.10.2.21)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.7.1 in ./venv/lib/python3.11/site-packages (from torch->-r requirements.txt (line 2)) (0.7.1)
+Requirement already satisfied: nvidia-nccl-cu12==2.28.9 in ./venv/lib/python3.11/site-packages (from torch->-r requirements.txt (line 2)) (2.28.9)
+Requirement already satisfied: nvidia-nvshmem-cu12==3.4.5 in ./venv/lib/python3.11/site-packages (from torch->-r requirements.txt (line 2)) (3.4.5)
+Requirement already satisfied: triton==3.6.0 in ./venv/lib/python3.11/site-packages (from torch->-r requirements.txt (line 2)) (3.6.0)
+Requirement already satisfied: nvidia-cublas-cu12==12.6.4.1.* in ./venv/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->-r requirements.txt (line 2)) (12.6.4.1)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.6.77.* in ./venv/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->-r requirements.txt (line 2)) (12.6.77)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.0.4.* in ./venv/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->-r requirements.txt (line 2)) (11.3.0.4)
+Requirement already satisfied: nvidia-cufile-cu12==1.11.1.6.* in ./venv/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->-r requirements.txt (line 2)) (1.11.1.6)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.6.80.* in ./venv/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->-r requirements.txt (line 2)) (12.6.80)
+Requirement already satisfied: nvidia-curand-cu12==10.3.7.77.* in ./venv/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->-r requirements.txt (line 2)) (10.3.7.77)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.1.2.* in ./venv/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->-r requirements.txt (line 2)) (11.7.1.2)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.4.2.* in ./venv/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->-r requirements.txt (line 2)) (12.5.4.2)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.6.85.* in ./venv/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->-r requirements.txt (line 2)) (12.6.85)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.6.85.* in ./venv/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->-r requirements.txt (line 2)) (12.6.85)
+Requirement already satisfied: nvidia-nvtx-cu12==12.6.77.* in ./venv/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->-r requirements.txt (line 2)) (12.6.77)
+Requirement already satisfied: cuda-pathfinder~=1.1 in ./venv/lib/python3.11/site-packages (from cuda-bindings<13,>=12.9.4->torch->-r requirements.txt (line 2)) (1.5.4)
+Requirement already satisfied: pyyaml in ./venv/lib/python3.11/site-packages (from timm->-r requirements.txt (line 7)) (6.0.3)
+Requirement already satisfied: huggingface_hub in ./venv/lib/python3.11/site-packages (from timm->-r requirements.txt (line 7)) (1.13.0)
+Requirement already satisfied: safetensors in ./venv/lib/python3.11/site-packages (from timm->-r requirements.txt (line 7)) (0.7.0)
+Requirement already satisfied: alembic>=1.5.0 in ./venv/lib/python3.11/site-packages (from optuna->-r requirements.txt (line 8)) (1.18.4)
+Requirement already satisfied: colorlog in ./venv/lib/python3.11/site-packages (from optuna->-r requirements.txt (line 8)) (6.10.1)
+Requirement already satisfied: packaging>=20.0 in ./venv/lib/python3.11/site-packages (from optuna->-r requirements.txt (line 8)) (26.2)
+Requirement already satisfied: sqlalchemy>=1.4.2 in ./venv/lib/python3.11/site-packages (from optuna->-r requirements.txt (line 8)) (2.0.49)
+Requirement already satisfied: python-dateutil>=2.8.2 in ./venv/lib/python3.11/site-packages (from pandas->-r requirements.txt (line 10)) (2.9.0.post0)
+Requirement already satisfied: scipy>=1.10.0 in ./venv/lib/python3.11/site-packages (from scikit-learn->-r requirements.txt (line 11)) (1.17.1)
+Requirement already satisfied: joblib>=1.3.0 in ./venv/lib/python3.11/site-packages (from scikit-learn->-r requirements.txt (line 11)) (1.5.3)
+Requirement already satisfied: threadpoolctl>=3.2.0 in ./venv/lib/python3.11/site-packages (from scikit-learn->-r requirements.txt (line 11)) (3.6.0)
+Requirement already satisfied: contourpy>=1.0.1 in ./venv/lib/python3.11/site-packages (from matplotlib->-r requirements.txt (line 12)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in ./venv/lib/python3.11/site-packages (from matplotlib->-r requirements.txt (line 12)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in ./venv/lib/python3.11/site-packages (from matplotlib->-r requirements.txt (line 12)) (4.62.1)
+Requirement already satisfied: kiwisolver>=1.3.1 in ./venv/lib/python3.11/site-packages (from matplotlib->-r requirements.txt (line 12)) (1.5.0)
+Requirement already satisfied: pyparsing>=3 in ./venv/lib/python3.11/site-packages (from matplotlib->-r requirements.txt (line 12)) (3.3.2)
+Requirement already satisfied: Mako in ./venv/lib/python3.11/site-packages (from alembic>=1.5.0->optuna->-r requirements.txt (line 8)) (1.3.12)
+Requirement already satisfied: six>=1.5 in ./venv/lib/python3.11/site-packages (from python-dateutil>=2.8.2->pandas->-r requirements.txt (line 10)) (1.17.0)
+Requirement already satisfied: greenlet>=1 in ./venv/lib/python3.11/site-packages (from sqlalchemy>=1.4.2->optuna->-r requirements.txt (line 8)) (3.5.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./venv/lib/python3.11/site-packages (from sympy>=1.13.3->torch->-r requirements.txt (line 2)) (1.3.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.4.3 in ./venv/lib/python3.11/site-packages (from huggingface_hub->timm->-r requirements.txt (line 7)) (1.5.0)
+Requirement already satisfied: httpx<1,>=0.23.0 in ./venv/lib/python3.11/site-packages (from huggingface_hub->timm->-r requirements.txt (line 7)) (0.28.1)
+Requirement already satisfied: typer in ./venv/lib/python3.11/site-packages (from huggingface_hub->timm->-r requirements.txt (line 7)) (0.25.1)
+Requirement already satisfied: anyio in ./venv/lib/python3.11/site-packages (from httpx<1,>=0.23.0->huggingface_hub->timm->-r requirements.txt (line 7)) (4.13.0)
+Requirement already satisfied: certifi in ./venv/lib/python3.11/site-packages (from httpx<1,>=0.23.0->huggingface_hub->timm->-r requirements.txt (line 7)) (2026.4.22)
+Requirement already satisfied: httpcore==1.* in ./venv/lib/python3.11/site-packages (from httpx<1,>=0.23.0->huggingface_hub->timm->-r requirements.txt (line 7)) (1.0.9)
+Requirement already satisfied: idna in ./venv/lib/python3.11/site-packages (from httpx<1,>=0.23.0->huggingface_hub->timm->-r requirements.txt (line 7)) (3.13)
+Requirement already satisfied: h11>=0.16 in ./venv/lib/python3.11/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->huggingface_hub->timm->-r requirements.txt (line 7)) (0.16.0)
+Requirement already satisfied: MarkupSafe>=2.0 in ./venv/lib/python3.11/site-packages (from jinja2->torch->-r requirements.txt (line 2)) (3.0.3)
+Requirement already satisfied: click>=8.2.1 in ./venv/lib/python3.11/site-packages (from typer->huggingface_hub->timm->-r requirements.txt (line 7)) (8.3.3)
+Requirement already satisfied: shellingham>=1.3.0 in ./venv/lib/python3.11/site-packages (from typer->huggingface_hub->timm->-r requirements.txt (line 7)) (1.5.4)
+Requirement already satisfied: rich>=13.8.0 in ./venv/lib/python3.11/site-packages (from typer->huggingface_hub->timm->-r requirements.txt (line 7)) (15.0.0)
+Requirement already satisfied: annotated-doc>=0.0.2 in ./venv/lib/python3.11/site-packages (from typer->huggingface_hub->timm->-r requirements.txt (line 7)) (0.0.4)
+Requirement already satisfied: markdown-it-py>=2.2.0 in ./venv/lib/python3.11/site-packages (from rich>=13.8.0->typer->huggingface_hub->timm->-r requirements.txt (line 7)) (4.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in ./venv/lib/python3.11/site-packages (from rich>=13.8.0->typer->huggingface_hub->timm->-r requirements.txt (line 7)) (2.20.0)
+Requirement already satisfied: mdurl~=0.1 in ./venv/lib/python3.11/site-packages (from markdown-it-py>=2.2.0->rich>=13.8.0->typer->huggingface_hub->timm->-r requirements.txt (line 7)) (0.1.2)
+=== CUDA / PyTorch check ===
+torch: 2.11.0+cu126
+torch.version.cuda: 12.6
+cuda available: True
+gpu: NVIDIA H100 NVL
+gpu memory GB: 93.0
+=== timm ConvNeXtV2 check ===
+Requested model: convnextv2_tiny
+Model available: True
+=== nvidia-smi ===
+Fri May  8 22:32:17 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.163.01             Driver Version: 550.163.01     CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H100 NVL                On  |   00000000:01:00.0 Off |                    0 |
+| N/A   35C    P0             61W /  400W |       1MiB /  95830MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+=== Starting ConvNeXtV2-Tiny HPO ===
+============================================================
+HPO configuration
+============================================================
+Using device: cuda
+Model: convnextv2_tiny
+Using pretrained: True
+Using AMP: True
+Project dir: /storage/homefs/eb19p026/DL_Project
+CSV path: /storage/homefs/eb19p026/DL_Project/boneage-training-dataset.csv
+Image dir: /storage/homefs/eb19p026/DL_Project/cropped_overlayed_RSNA_dataset_1024x1024
+HPO dir: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1
+Study name: hpo_convnextv2_tiny_boneage_HPOV1
+Storage: sqlite:////storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_study.db
+Batch size: 32
+Grad accum steps: 1
+Effective batch size: 32
+Target trials: 30
+HPO epochs per trial: 25
+HPO steps per epoch: 250
+============================================================
+GPU: NVIDIA H100 NVL
+GPU memory GB: 93.0
+Warning: 27 rows missing images. Saved to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/missing_images.csv
+Existing trials in study: 1
+Remaining trials to run: 29
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 000 | Epoch 001/25 | Img 1024 | Train MAE: 102.96 | Val MAE: 70.11 | Val RMSE: 79.09 | Best Trial MAE: 70.11
+Trial 000 | Epoch 002/25 | Img 1024 | Train MAE: 38.59 | Val MAE: 19.79 | Val RMSE: 25.53 | Best Trial MAE: 19.79
+Trial 000 | Epoch 003/25 | Img 1024 | Train MAE: 17.10 | Val MAE: 12.08 | Val RMSE: 15.84 | Best Trial MAE: 12.08
+Trial 000 | Epoch 004/25 | Img 1024 | Train MAE: 12.64 | Val MAE: 10.42 | Val RMSE: 13.39 | Best Trial MAE: 10.42
+Trial 000 | Epoch 005/25 | Img 1024 | Train MAE: 11.01 | Val MAE: 10.72 | Val RMSE: 13.56 | Best Trial MAE: 10.42
+Trial 000 | Epoch 006/25 | Img 1024 | Train MAE: 10.66 | Val MAE: 9.44 | Val RMSE: 11.90 | Best Trial MAE: 9.44
+Trial 000 | Epoch 007/25 | Img 1024 | Train MAE: 10.03 | Val MAE: 9.55 | Val RMSE: 12.18 | Best Trial MAE: 9.44
+Trial 000 | Epoch 008/25 | Img 1024 | Train MAE: 9.77 | Val MAE: 8.88 | Val RMSE: 11.22 | Best Trial MAE: 8.88
+Trial 000 | Epoch 009/25 | Img 1024 | Train MAE: 9.31 | Val MAE: 9.31 | Val RMSE: 11.84 | Best Trial MAE: 8.88
+Trial 000 | Epoch 010/25 | Img 1024 | Train MAE: 9.28 | Val MAE: 8.82 | Val RMSE: 11.26 | Best Trial MAE: 8.82
+Trial 000 | Epoch 011/25 | Img 1024 | Train MAE: 9.00 | Val MAE: 8.65 | Val RMSE: 11.08 | Best Trial MAE: 8.65
+Trial 000 | Epoch 012/25 | Img 1024 | Train MAE: 8.84 | Val MAE: 8.50 | Val RMSE: 10.90 | Best Trial MAE: 8.50
+Trial 000 | Epoch 013/25 | Img 1024 | Train MAE: 8.67 | Val MAE: 8.32 | Val RMSE: 10.63 | Best Trial MAE: 8.32
+Trial 000 | Epoch 014/25 | Img 1024 | Train MAE: 8.55 | Val MAE: 8.79 | Val RMSE: 11.31 | Best Trial MAE: 8.32
+Trial 000 | Epoch 015/25 | Img 1024 | Train MAE: 8.39 | Val MAE: 8.01 | Val RMSE: 10.26 | Best Trial MAE: 8.01
+Trial 000 | Epoch 016/25 | Img 1024 | Train MAE: 8.36 | Val MAE: 8.17 | Val RMSE: 10.50 | Best Trial MAE: 8.01
+Trial 000 | Epoch 017/25 | Img 1024 | Train MAE: 8.23 | Val MAE: 8.18 | Val RMSE: 10.50 | Best Trial MAE: 8.01
+Trial 000 | Epoch 018/25 | Img 1024 | Train MAE: 8.01 | Val MAE: 7.93 | Val RMSE: 10.20 | Best Trial MAE: 7.93
+Trial 000 | Epoch 019/25 | Img 1024 | Train MAE: 8.03 | Val MAE: 8.16 | Val RMSE: 10.53 | Best Trial MAE: 7.93
+Trial 000 | Epoch 020/25 | Img 1024 | Train MAE: 7.97 | Val MAE: 8.13 | Val RMSE: 10.48 | Best Trial MAE: 7.93
+Trial 000 | Epoch 021/25 | Img 1024 | Train MAE: 7.98 | Val MAE: 8.15 | Val RMSE: 10.49 | Best Trial MAE: 7.93
+Trial 000 | Epoch 022/25 | Img 1024 | Train MAE: 7.96 | Val MAE: 7.91 | Val RMSE: 10.18 | Best Trial MAE: 7.91
+Trial 000 | Epoch 023/25 | Img 1024 | Train MAE: 7.89 | Val MAE: 7.94 | Val RMSE: 10.21 | Best Trial MAE: 7.91
+Trial 000 | Epoch 024/25 | Img 1024 | Train MAE: 7.87 | Val MAE: 8.02 | Val RMSE: 10.33 | Best Trial MAE: 7.91
+Trial 000 | Epoch 025/25 | Img 1024 | Train MAE: 7.86 | Val MAE: 8.00 | Val RMSE: 10.30 | Best Trial MAE: 7.91
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 001 | Epoch 001/25 | Img 1024 | Train MAE: 109.98 | Val MAE: 88.19 | Val RMSE: 96.70 | Best Trial MAE: 88.19
+Trial 001 | Epoch 002/25 | Img 1024 | Train MAE: 54.79 | Val MAE: 39.30 | Val RMSE: 46.62 | Best Trial MAE: 39.30
+Trial 001 | Epoch 003/25 | Img 1024 | Train MAE: 33.74 | Val MAE: 25.63 | Val RMSE: 32.78 | Best Trial MAE: 25.63
+Trial 001 | Epoch 004/25 | Img 1024 | Train MAE: 22.15 | Val MAE: 16.20 | Val RMSE: 21.12 | Best Trial MAE: 16.20
+Trial 001 | Epoch 005/25 | Img 1024 | Train MAE: 15.85 | Val MAE: 12.03 | Val RMSE: 15.89 | Best Trial MAE: 12.03
+Trial 001 | Epoch 006/25 | Img 1024 | Train MAE: 12.83 | Val MAE: 10.26 | Val RMSE: 13.50 | Best Trial MAE: 10.26
+Trial 001 | Epoch 007/25 | Img 1024 | Train MAE: 11.88 | Val MAE: 11.74 | Val RMSE: 14.87 | Best Trial MAE: 10.26
+Trial 001 | Epoch 008/25 | Img 1024 | Train MAE: 11.01 | Val MAE: 9.14 | Val RMSE: 11.70 | Best Trial MAE: 9.14
+Trial 001 | Epoch 009/25 | Img 1024 | Train MAE: 10.92 | Val MAE: 9.10 | Val RMSE: 11.51 | Best Trial MAE: 9.10
+Trial 001 | Epoch 010/25 | Img 1024 | Train MAE: 10.44 | Val MAE: 8.98 | Val RMSE: 11.31 | Best Trial MAE: 8.98
+Trial 001 | Epoch 011/25 | Img 1024 | Train MAE: 10.35 | Val MAE: 8.71 | Val RMSE: 11.12 | Best Trial MAE: 8.71
+Trial 001 | Epoch 012/25 | Img 1024 | Train MAE: 10.07 | Val MAE: 8.81 | Val RMSE: 11.21 | Best Trial MAE: 8.71
+Trial 001 | Epoch 013/25 | Img 1024 | Train MAE: 9.70 | Val MAE: 8.49 | Val RMSE: 10.79 | Best Trial MAE: 8.49
+Trial 001 | Epoch 014/25 | Img 1024 | Train MAE: 9.66 | Val MAE: 9.78 | Val RMSE: 12.49 | Best Trial MAE: 8.49
+Trial 001 | Epoch 015/25 | Img 1024 | Train MAE: 9.37 | Val MAE: 8.73 | Val RMSE: 11.13 | Best Trial MAE: 8.49
+Trial 001 | Epoch 016/25 | Img 1024 | Train MAE: 9.18 | Val MAE: 8.33 | Val RMSE: 10.63 | Best Trial MAE: 8.33
+Trial 001 | Epoch 017/25 | Img 1024 | Train MAE: 9.02 | Val MAE: 8.47 | Val RMSE: 10.90 | Best Trial MAE: 8.33
+Trial 001 | Epoch 018/25 | Img 1024 | Train MAE: 9.01 | Val MAE: 8.60 | Val RMSE: 11.10 | Best Trial MAE: 8.33
+Trial 001 | Epoch 019/25 | Img 1024 | Train MAE: 8.87 | Val MAE: 8.36 | Val RMSE: 10.75 | Best Trial MAE: 8.33
+Trial 001 | Epoch 020/25 | Img 1024 | Train MAE: 8.79 | Val MAE: 8.21 | Val RMSE: 10.51 | Best Trial MAE: 8.21
+Trial 001 | Epoch 021/25 | Img 1024 | Train MAE: 8.80 | Val MAE: 8.28 | Val RMSE: 10.64 | Best Trial MAE: 8.21
+Trial 001 | Epoch 022/25 | Img 1024 | Train MAE: 8.72 | Val MAE: 8.52 | Val RMSE: 11.00 | Best Trial MAE: 8.21
+Trial 001 | Epoch 023/25 | Img 1024 | Train MAE: 8.52 | Val MAE: 8.33 | Val RMSE: 10.70 | Best Trial MAE: 8.21
+Trial 001 | Epoch 024/25 | Img 1024 | Train MAE: 8.56 | Val MAE: 8.27 | Val RMSE: 10.63 | Best Trial MAE: 8.21
+Trial 001 | Epoch 025/25 | Img 1024 | Train MAE: 8.51 | Val MAE: 8.33 | Val RMSE: 10.73 | Best Trial MAE: 8.21
+Trial 001 stopped early. Best Val MAE: 8.21
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 002 | Epoch 001/25 | Img 1024 | Train MAE: 115.08 | Val MAE: 101.36 | Val RMSE: 109.29 | Best Trial MAE: 101.36
+Trial 002 | Epoch 002/25 | Img 1024 | Train MAE: 73.19 | Val MAE: 44.36 | Val RMSE: 52.00 | Best Trial MAE: 44.36
+Trial 002 | Epoch 003/25 | Img 1024 | Train MAE: 33.38 | Val MAE: 23.02 | Val RMSE: 29.34 | Best Trial MAE: 23.02
+Trial 002 | Epoch 004/25 | Img 1024 | Train MAE: 20.65 | Val MAE: 15.35 | Val RMSE: 19.74 | Best Trial MAE: 15.35
+Trial 002 | Epoch 005/25 | Img 1024 | Train MAE: 15.91 | Val MAE: 13.17 | Val RMSE: 17.04 | Best Trial MAE: 13.17
+Trial 002 | Epoch 006/25 | Img 1024 | Train MAE: 13.28 | Val MAE: 12.93 | Val RMSE: 16.39 | Best Trial MAE: 12.93
+Trial 002 | Epoch 007/25 | Img 1024 | Train MAE: 12.65 | Val MAE: 13.68 | Val RMSE: 16.93 | Best Trial MAE: 12.93
+Trial 002 | Epoch 008/25 | Img 1024 | Train MAE: 11.41 | Val MAE: 11.94 | Val RMSE: 14.95 | Best Trial MAE: 11.94
+Trial 002 | Epoch 009/25 | Img 1024 | Train MAE: 10.94 | Val MAE: 14.04 | Val RMSE: 17.26 | Best Trial MAE: 11.94
+Trial 002 | Epoch 010/25 | Img 1024 | Train MAE: 10.57 | Val MAE: 11.14 | Val RMSE: 14.07 | Best Trial MAE: 11.14
+Trial 002 | Epoch 011/25 | Img 1024 | Train MAE: 10.41 | Val MAE: 10.80 | Val RMSE: 13.71 | Best Trial MAE: 10.80
+Trial 002 | Epoch 012/25 | Img 1024 | Train MAE: 10.08 | Val MAE: 12.57 | Val RMSE: 15.66 | Best Trial MAE: 10.80
+Trial 002 | Epoch 013/25 | Img 1024 | Train MAE: 9.90 | Val MAE: 11.16 | Val RMSE: 14.10 | Best Trial MAE: 10.80
+Trial 002 | Epoch 014/25 | Img 1024 | Train MAE: 9.69 | Val MAE: 11.82 | Val RMSE: 14.87 | Best Trial MAE: 10.80
+Trial 002 | Epoch 015/25 | Img 1024 | Train MAE: 9.59 | Val MAE: 11.70 | Val RMSE: 14.72 | Best Trial MAE: 10.80
+Trial 002 | Epoch 016/25 | Img 1024 | Train MAE: 9.25 | Val MAE: 11.09 | Val RMSE: 14.09 | Best Trial MAE: 10.80
+Trial 002 stopped early. Best Val MAE: 10.80
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 003 | Epoch 001/25 | Img 1024 | Train MAE: 117.34 | Val MAE: 102.69 | Val RMSE: 110.56 | Best Trial MAE: 102.69
+Trial 003 | Epoch 002/25 | Img 1024 | Train MAE: 65.62 | Val MAE: 38.53 | Val RMSE: 45.31 | Best Trial MAE: 38.53
+Trial 003 | Epoch 003/25 | Img 1024 | Train MAE: 29.26 | Val MAE: 21.77 | Val RMSE: 26.82 | Best Trial MAE: 21.77
+Trial 003 | Epoch 004/25 | Img 1024 | Train MAE: 18.41 | Val MAE: 16.99 | Val RMSE: 21.07 | Best Trial MAE: 16.99
+Trial 003 | Epoch 005/25 | Img 1024 | Train MAE: 15.29 | Val MAE: 17.20 | Val RMSE: 21.26 | Best Trial MAE: 16.99
+Trial 003 | Epoch 006/25 | Img 1024 | Train MAE: 13.61 | Val MAE: 13.14 | Val RMSE: 16.52 | Best Trial MAE: 13.14
+Trial 003 | Epoch 007/25 | Img 1024 | Train MAE: 12.87 | Val MAE: 14.05 | Val RMSE: 17.42 | Best Trial MAE: 13.14
+Trial 003 | Epoch 008/25 | Img 1024 | Train MAE: 12.00 | Val MAE: 13.68 | Val RMSE: 16.93 | Best Trial MAE: 13.14
+Trial 003 | Epoch 009/25 | Img 1024 | Train MAE: 11.50 | Val MAE: 14.13 | Val RMSE: 17.32 | Best Trial MAE: 13.14
+Trial 003 | Epoch 010/25 | Img 1024 | Train MAE: 11.16 | Val MAE: 14.59 | Val RMSE: 17.85 | Best Trial MAE: 13.14
+Trial 003 | Epoch 011/25 | Img 1024 | Train MAE: 10.94 | Val MAE: 11.84 | Val RMSE: 14.81 | Best Trial MAE: 11.84
+Trial 003 | Epoch 012/25 | Img 1024 | Train MAE: 10.56 | Val MAE: 11.21 | Val RMSE: 14.19 | Best Trial MAE: 11.21
+Trial 003 | Epoch 013/25 | Img 1024 | Train MAE: 10.39 | Val MAE: 12.26 | Val RMSE: 15.26 | Best Trial MAE: 11.21
+Trial 003 | Epoch 014/25 | Img 1024 | Train MAE: 10.40 | Val MAE: 13.30 | Val RMSE: 16.41 | Best Trial MAE: 11.21
+Trial 003 | Epoch 015/25 | Img 1024 | Train MAE: 10.21 | Val MAE: 12.31 | Val RMSE: 15.41 | Best Trial MAE: 11.21
+Trial 003 | Epoch 016/25 | Img 1024 | Train MAE: 10.02 | Val MAE: 12.31 | Val RMSE: 15.36 | Best Trial MAE: 11.21
+Trial 003 | Epoch 017/25 | Img 1024 | Train MAE: 9.82 | Val MAE: 11.76 | Val RMSE: 14.76 | Best Trial MAE: 11.21
+Trial 003 stopped early. Best Val MAE: 11.21
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 004 | Epoch 001/25 | Img 1024 | Train MAE: 112.07 | Val MAE: 95.33 | Val RMSE: 103.55 | Best Trial MAE: 95.33
+Trial 004 | Epoch 002/25 | Img 1024 | Train MAE: 53.05 | Val MAE: 25.64 | Val RMSE: 31.20 | Best Trial MAE: 25.64
+Trial 004 | Epoch 003/25 | Img 1024 | Train MAE: 19.77 | Val MAE: 13.65 | Val RMSE: 17.72 | Best Trial MAE: 13.65
+Trial 004 | Epoch 004/25 | Img 1024 | Train MAE: 13.89 | Val MAE: 11.04 | Val RMSE: 14.45 | Best Trial MAE: 11.04
+Trial 004 | Epoch 005/25 | Img 1024 | Train MAE: 11.61 | Val MAE: 11.02 | Val RMSE: 14.04 | Best Trial MAE: 11.02
+Trial 004 | Epoch 006/25 | Img 1024 | Train MAE: 10.44 | Val MAE: 9.60 | Val RMSE: 12.17 | Best Trial MAE: 9.60
+Trial 004 | Epoch 007/25 | Img 1024 | Train MAE: 10.12 | Val MAE: 9.28 | Val RMSE: 11.79 | Best Trial MAE: 9.28
+Trial 004 | Epoch 008/25 | Img 1024 | Train MAE: 9.71 | Val MAE: 9.98 | Val RMSE: 12.75 | Best Trial MAE: 9.28
+Trial 004 | Epoch 009/25 | Img 1024 | Train MAE: 9.54 | Val MAE: 9.00 | Val RMSE: 11.38 | Best Trial MAE: 9.00
+Trial 004 | Epoch 010/25 | Img 1024 | Train MAE: 9.13 | Val MAE: 8.70 | Val RMSE: 11.14 | Best Trial MAE: 8.70
+Trial 004 | Epoch 011/25 | Img 1024 | Train MAE: 8.87 | Val MAE: 9.21 | Val RMSE: 11.90 | Best Trial MAE: 8.70
+Trial 004 | Epoch 012/25 | Img 1024 | Train MAE: 8.89 | Val MAE: 8.56 | Val RMSE: 10.91 | Best Trial MAE: 8.56
+Trial 004 | Epoch 013/25 | Img 1024 | Train MAE: 8.45 | Val MAE: 8.48 | Val RMSE: 10.90 | Best Trial MAE: 8.48
+Trial 004 | Epoch 014/25 | Img 1024 | Train MAE: 8.61 | Val MAE: 8.46 | Val RMSE: 10.77 | Best Trial MAE: 8.46
+Trial 004 | Epoch 015/25 | Img 1024 | Train MAE: 8.25 | Val MAE: 8.32 | Val RMSE: 10.72 | Best Trial MAE: 8.32
+Trial 004 | Epoch 016/25 | Img 1024 | Train MAE: 8.13 | Val MAE: 8.63 | Val RMSE: 11.19 | Best Trial MAE: 8.32
+Trial 004 | Epoch 017/25 | Img 1024 | Train MAE: 8.04 | Val MAE: 8.25 | Val RMSE: 10.55 | Best Trial MAE: 8.25
+Trial 004 | Epoch 018/25 | Img 1024 | Train MAE: 7.97 | Val MAE: 8.19 | Val RMSE: 10.55 | Best Trial MAE: 8.19
+Trial 004 | Epoch 019/25 | Img 1024 | Train MAE: 7.75 | Val MAE: 8.26 | Val RMSE: 10.67 | Best Trial MAE: 8.19
+Trial 004 | Epoch 020/25 | Img 1024 | Train MAE: 7.67 | Val MAE: 8.30 | Val RMSE: 10.73 | Best Trial MAE: 8.19
+Trial 004 | Epoch 021/25 | Img 1024 | Train MAE: 7.62 | Val MAE: 8.13 | Val RMSE: 10.50 | Best Trial MAE: 8.13
+Trial 004 | Epoch 022/25 | Img 1024 | Train MAE: 7.59 | Val MAE: 8.18 | Val RMSE: 10.57 | Best Trial MAE: 8.13
+Trial 004 | Epoch 023/25 | Img 1024 | Train MAE: 7.53 | Val MAE: 8.20 | Val RMSE: 10.61 | Best Trial MAE: 8.13
+Trial 004 | Epoch 024/25 | Img 1024 | Train MAE: 7.58 | Val MAE: 8.11 | Val RMSE: 10.49 | Best Trial MAE: 8.11
+Trial 004 | Epoch 025/25 | Img 1024 | Train MAE: 7.50 | Val MAE: 8.14 | Val RMSE: 10.53 | Best Trial MAE: 8.11
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 005 | Epoch 001/25 | Img 512 | Train MAE: 55.11 | Val MAE: 15.66 | Val RMSE: 20.28 | Best Trial MAE: 15.66
+Trial 005 | Epoch 002/25 | Img 512 | Train MAE: 14.28 | Val MAE: 11.51 | Val RMSE: 14.70 | Best Trial MAE: 11.51
+Trial 005 | Epoch 003/25 | Img 512 | Train MAE: 11.33 | Val MAE: 9.28 | Val RMSE: 11.93 | Best Trial MAE: 9.28
+Trial 005 | Epoch 004/25 | Img 512 | Train MAE: 10.59 | Val MAE: 9.53 | Val RMSE: 12.20 | Best Trial MAE: 9.28
+Trial 005 | Epoch 005/25 | Img 512 | Train MAE: 9.78 | Val MAE: 8.84 | Val RMSE: 11.18 | Best Trial MAE: 8.84
+Trial 005 | Epoch 006/25 | Img 512 | Train MAE: 9.41 | Val MAE: 8.97 | Val RMSE: 11.58 | Best Trial MAE: 8.84
+Trial 005 | Epoch 007/25 | Img 512 | Train MAE: 8.88 | Val MAE: 8.04 | Val RMSE: 10.41 | Best Trial MAE: 8.04
+Trial 005 | Epoch 008/25 | Img 512 | Train MAE: 8.68 | Val MAE: 7.74 | Val RMSE: 10.04 | Best Trial MAE: 7.74
+Trial 005 | Epoch 009/25 | Img 512 | Train MAE: 8.34 | Val MAE: 7.88 | Val RMSE: 10.27 | Best Trial MAE: 7.74
+Trial 005 | Epoch 010/25 | Img 512 | Train MAE: 7.92 | Val MAE: 8.38 | Val RMSE: 10.81 | Best Trial MAE: 7.74
+Trial 005 | Epoch 011/25 | Img 512 | Train MAE: 7.78 | Val MAE: 7.36 | Val RMSE: 9.57 | Best Trial MAE: 7.36
+Trial 005 | Epoch 012/25 | Img 512 | Train MAE: 7.42 | Val MAE: 7.45 | Val RMSE: 9.68 | Best Trial MAE: 7.36
+Trial 005 | Epoch 013/25 | Img 512 | Train MAE: 7.23 | Val MAE: 7.75 | Val RMSE: 10.11 | Best Trial MAE: 7.36
+Trial 005 | Epoch 014/25 | Img 512 | Train MAE: 7.15 | Val MAE: 7.51 | Val RMSE: 9.77 | Best Trial MAE: 7.36
+Trial 005 | Epoch 015/25 | Img 512 | Train MAE: 6.90 | Val MAE: 7.18 | Val RMSE: 9.33 | Best Trial MAE: 7.18
+Trial 005 | Epoch 016/25 | Img 512 | Train MAE: 6.76 | Val MAE: 9.13 | Val RMSE: 11.55 | Best Trial MAE: 7.18
+Trial 005 | Epoch 017/25 | Img 512 | Train MAE: 6.70 | Val MAE: 7.09 | Val RMSE: 9.21 | Best Trial MAE: 7.09
+Trial 005 | Epoch 018/25 | Img 512 | Train MAE: 6.61 | Val MAE: 7.00 | Val RMSE: 9.18 | Best Trial MAE: 7.00
+Trial 005 | Epoch 019/25 | Img 512 | Train MAE: 6.44 | Val MAE: 6.91 | Val RMSE: 9.08 | Best Trial MAE: 6.91
+Trial 005 | Epoch 020/25 | Img 512 | Train MAE: 6.36 | Val MAE: 6.82 | Val RMSE: 8.92 | Best Trial MAE: 6.82
+Trial 005 | Epoch 021/25 | Img 512 | Train MAE: 6.30 | Val MAE: 6.91 | Val RMSE: 9.02 | Best Trial MAE: 6.82
+Trial 005 | Epoch 022/25 | Img 512 | Train MAE: 6.26 | Val MAE: 6.92 | Val RMSE: 9.05 | Best Trial MAE: 6.82
+Trial 005 | Epoch 023/25 | Img 512 | Train MAE: 6.28 | Val MAE: 6.80 | Val RMSE: 8.89 | Best Trial MAE: 6.80
+Trial 005 | Epoch 024/25 | Img 512 | Train MAE: 6.24 | Val MAE: 6.97 | Val RMSE: 9.10 | Best Trial MAE: 6.80
+Trial 005 | Epoch 025/25 | Img 512 | Train MAE: 6.18 | Val MAE: 7.00 | Val RMSE: 9.13 | Best Trial MAE: 6.80
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 006 | Epoch 001/25 | Img 1024 | Train MAE: 109.39 | Val MAE: 83.59 | Val RMSE: 92.26 | Best Trial MAE: 83.59
+Trial 006 | Epoch 002/25 | Img 1024 | Train MAE: 48.44 | Val MAE: 33.60 | Val RMSE: 41.29 | Best Trial MAE: 33.60
+Trial 006 | Epoch 003/25 | Img 1024 | Train MAE: 27.05 | Val MAE: 19.22 | Val RMSE: 24.52 | Best Trial MAE: 19.22
+Trial 006 | Epoch 004/25 | Img 1024 | Train MAE: 16.53 | Val MAE: 12.78 | Val RMSE: 16.65 | Best Trial MAE: 12.78
+Trial 006 | Epoch 005/25 | Img 1024 | Train MAE: 12.75 | Val MAE: 10.75 | Val RMSE: 13.96 | Best Trial MAE: 10.75
+Trial 006 | Epoch 006/25 | Img 1024 | Train MAE: 11.24 | Val MAE: 11.28 | Val RMSE: 14.39 | Best Trial MAE: 10.75
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 007 | Epoch 001/25 | Img 512 | Train MAE: 92.53 | Val MAE: 54.66 | Val RMSE: 63.59 | Best Trial MAE: 54.66
+Trial 007 | Epoch 002/25 | Img 512 | Train MAE: 29.78 | Val MAE: 15.39 | Val RMSE: 19.79 | Best Trial MAE: 15.39
+Trial 007 | Epoch 003/25 | Img 512 | Train MAE: 13.10 | Val MAE: 16.89 | Val RMSE: 20.53 | Best Trial MAE: 15.39
+Trial 007 | Epoch 004/25 | Img 512 | Train MAE: 11.67 | Val MAE: 10.34 | Val RMSE: 13.38 | Best Trial MAE: 10.34
+Trial 007 | Epoch 005/25 | Img 512 | Train MAE: 9.84 | Val MAE: 9.78 | Val RMSE: 12.52 | Best Trial MAE: 9.78
+Trial 007 | Epoch 006/25 | Img 512 | Train MAE: 8.84 | Val MAE: 9.66 | Val RMSE: 12.30 | Best Trial MAE: 9.66
+Trial 007 | Epoch 007/25 | Img 512 | Train MAE: 8.28 | Val MAE: 9.03 | Val RMSE: 11.51 | Best Trial MAE: 9.03
+Trial 007 | Epoch 008/25 | Img 512 | Train MAE: 7.63 | Val MAE: 8.97 | Val RMSE: 11.56 | Best Trial MAE: 8.97
+Trial 007 | Epoch 009/25 | Img 512 | Train MAE: 6.98 | Val MAE: 9.31 | Val RMSE: 12.07 | Best Trial MAE: 8.97
+Trial 007 | Epoch 010/25 | Img 512 | Train MAE: 6.51 | Val MAE: 9.16 | Val RMSE: 11.74 | Best Trial MAE: 8.97
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 008 | Epoch 001/25 | Img 512 | Train MAE: 123.84 | Val MAE: 120.23 | Val RMSE: 127.14 | Best Trial MAE: 120.23
+Trial 008 | Epoch 002/25 | Img 512 | Train MAE: 114.50 | Val MAE: 104.44 | Val RMSE: 112.20 | Best Trial MAE: 104.44
+Trial 008 | Epoch 003/25 | Img 512 | Train MAE: 95.92 | Val MAE: 85.33 | Val RMSE: 93.94 | Best Trial MAE: 85.33
+Trial 008 | Epoch 004/25 | Img 512 | Train MAE: 76.80 | Val MAE: 66.00 | Val RMSE: 74.88 | Best Trial MAE: 66.00
+Trial 008 | Epoch 005/25 | Img 512 | Train MAE: 58.36 | Val MAE: 49.32 | Val RMSE: 57.30 | Best Trial MAE: 49.32
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 009 | Epoch 001/25 | Img 512 | Train MAE: 123.38 | Val MAE: 118.40 | Val RMSE: 125.40 | Best Trial MAE: 118.40
+Trial 009 | Epoch 002/25 | Img 512 | Train MAE: 110.55 | Val MAE: 100.89 | Val RMSE: 108.84 | Best Trial MAE: 100.89
+Trial 009 | Epoch 003/25 | Img 512 | Train MAE: 90.80 | Val MAE: 80.35 | Val RMSE: 89.08 | Best Trial MAE: 80.35
+Trial 009 | Epoch 004/25 | Img 512 | Train MAE: 71.07 | Val MAE: 61.26 | Val RMSE: 70.07 | Best Trial MAE: 61.26
+Trial 009 | Epoch 005/25 | Img 512 | Train MAE: 53.59 | Val MAE: 48.05 | Val RMSE: 57.58 | Best Trial MAE: 48.05
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 010 | Epoch 001/25 | Img 512 | Train MAE: 42.70 | Val MAE: 15.10 | Val RMSE: 18.94 | Best Trial MAE: 15.10
+Trial 010 | Epoch 002/25 | Img 512 | Train MAE: 13.74 | Val MAE: 10.44 | Val RMSE: 13.22 | Best Trial MAE: 10.44
+Trial 010 | Epoch 003/25 | Img 512 | Train MAE: 11.66 | Val MAE: 9.44 | Val RMSE: 12.03 | Best Trial MAE: 9.44
+Trial 010 | Epoch 004/25 | Img 512 | Train MAE: 10.40 | Val MAE: 13.18 | Val RMSE: 16.15 | Best Trial MAE: 9.44
+Trial 010 | Epoch 005/25 | Img 512 | Train MAE: 9.77 | Val MAE: 8.93 | Val RMSE: 11.40 | Best Trial MAE: 8.93
+Trial 010 | Epoch 006/25 | Img 512 | Train MAE: 9.21 | Val MAE: 8.02 | Val RMSE: 10.18 | Best Trial MAE: 8.02
+Trial 010 | Epoch 007/25 | Img 512 | Train MAE: 8.62 | Val MAE: 8.10 | Val RMSE: 10.43 | Best Trial MAE: 8.02
+Trial 010 | Epoch 008/25 | Img 512 | Train MAE: 8.08 | Val MAE: 7.97 | Val RMSE: 10.22 | Best Trial MAE: 7.97
+Trial 010 | Epoch 009/25 | Img 512 | Train MAE: 7.74 | Val MAE: 7.55 | Val RMSE: 9.86 | Best Trial MAE: 7.55
+Trial 010 | Epoch 010/25 | Img 512 | Train MAE: 7.63 | Val MAE: 7.78 | Val RMSE: 9.99 | Best Trial MAE: 7.55
+Trial 010 | Epoch 011/25 | Img 512 | Train MAE: 7.40 | Val MAE: 7.17 | Val RMSE: 9.27 | Best Trial MAE: 7.17
+Trial 010 | Epoch 012/25 | Img 512 | Train MAE: 7.17 | Val MAE: 6.99 | Val RMSE: 9.20 | Best Trial MAE: 6.99
+Trial 010 | Epoch 013/25 | Img 512 | Train MAE: 6.96 | Val MAE: 7.32 | Val RMSE: 9.42 | Best Trial MAE: 6.99
+Trial 010 | Epoch 014/25 | Img 512 | Train MAE: 6.84 | Val MAE: 8.16 | Val RMSE: 10.60 | Best Trial MAE: 6.99
+Trial 010 | Epoch 015/25 | Img 512 | Train MAE: 6.78 | Val MAE: 8.70 | Val RMSE: 10.94 | Best Trial MAE: 6.99
+Trial 010 | Epoch 016/25 | Img 512 | Train MAE: 6.73 | Val MAE: 6.90 | Val RMSE: 9.02 | Best Trial MAE: 6.90
+Trial 010 | Epoch 017/25 | Img 512 | Train MAE: 6.47 | Val MAE: 6.99 | Val RMSE: 9.18 | Best Trial MAE: 6.90
+Trial 010 | Epoch 018/25 | Img 512 | Train MAE: 6.51 | Val MAE: 6.75 | Val RMSE: 8.81 | Best Trial MAE: 6.75
+Trial 010 | Epoch 019/25 | Img 512 | Train MAE: 6.29 | Val MAE: 6.83 | Val RMSE: 8.93 | Best Trial MAE: 6.75
+Trial 010 | Epoch 020/25 | Img 512 | Train MAE: 6.27 | Val MAE: 6.85 | Val RMSE: 8.94 | Best Trial MAE: 6.75
+Trial 010 | Epoch 021/25 | Img 512 | Train MAE: 6.19 | Val MAE: 7.01 | Val RMSE: 9.14 | Best Trial MAE: 6.75
+Trial 010 | Epoch 022/25 | Img 512 | Train MAE: 6.11 | Val MAE: 7.37 | Val RMSE: 9.56 | Best Trial MAE: 6.75
+Trial 010 | Epoch 023/25 | Img 512 | Train MAE: 6.14 | Val MAE: 7.03 | Val RMSE: 9.15 | Best Trial MAE: 6.75
+Trial 010 stopped early. Best Val MAE: 6.75
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 011 | Epoch 001/25 | Img 512 | Train MAE: 39.07 | Val MAE: 13.11 | Val RMSE: 16.45 | Best Trial MAE: 13.11
+Trial 011 | Epoch 002/25 | Img 512 | Train MAE: 14.33 | Val MAE: 10.23 | Val RMSE: 12.97 | Best Trial MAE: 10.23
+Trial 011 | Epoch 003/25 | Img 512 | Train MAE: 11.44 | Val MAE: 10.23 | Val RMSE: 12.72 | Best Trial MAE: 10.23
+Trial 011 | Epoch 004/25 | Img 512 | Train MAE: 10.46 | Val MAE: 9.11 | Val RMSE: 11.64 | Best Trial MAE: 9.11
+Trial 011 | Epoch 005/25 | Img 512 | Train MAE: 9.64 | Val MAE: 7.87 | Val RMSE: 10.16 | Best Trial MAE: 7.87
+Trial 011 | Epoch 006/25 | Img 512 | Train MAE: 8.87 | Val MAE: 9.91 | Val RMSE: 12.51 | Best Trial MAE: 7.87
+Trial 011 | Epoch 007/25 | Img 512 | Train MAE: 8.42 | Val MAE: 7.81 | Val RMSE: 10.14 | Best Trial MAE: 7.81
+Trial 011 | Epoch 008/25 | Img 512 | Train MAE: 8.05 | Val MAE: 7.53 | Val RMSE: 9.66 | Best Trial MAE: 7.53
+Trial 011 | Epoch 009/25 | Img 512 | Train MAE: 7.77 | Val MAE: 7.27 | Val RMSE: 9.42 | Best Trial MAE: 7.27
+Trial 011 | Epoch 010/25 | Img 512 | Train MAE: 7.60 | Val MAE: 7.27 | Val RMSE: 9.56 | Best Trial MAE: 7.27
+Trial 011 | Epoch 011/25 | Img 512 | Train MAE: 7.09 | Val MAE: 6.81 | Val RMSE: 9.06 | Best Trial MAE: 6.81
+Trial 011 | Epoch 012/25 | Img 512 | Train MAE: 7.04 | Val MAE: 6.87 | Val RMSE: 9.09 | Best Trial MAE: 6.81
+Trial 011 | Epoch 013/25 | Img 512 | Train MAE: 6.81 | Val MAE: 6.68 | Val RMSE: 8.84 | Best Trial MAE: 6.68
+Trial 011 | Epoch 014/25 | Img 512 | Train MAE: 6.67 | Val MAE: 6.54 | Val RMSE: 8.51 | Best Trial MAE: 6.54
+Trial 011 | Epoch 015/25 | Img 512 | Train MAE: 6.63 | Val MAE: 6.76 | Val RMSE: 8.89 | Best Trial MAE: 6.54
+Trial 011 | Epoch 016/25 | Img 512 | Train MAE: 6.48 | Val MAE: 6.93 | Val RMSE: 9.15 | Best Trial MAE: 6.54
+Trial 011 | Epoch 017/25 | Img 512 | Train MAE: 6.42 | Val MAE: 6.92 | Val RMSE: 9.02 | Best Trial MAE: 6.54
+Trial 011 | Epoch 018/25 | Img 512 | Train MAE: 6.30 | Val MAE: 7.47 | Val RMSE: 9.75 | Best Trial MAE: 6.54
+Trial 011 | Epoch 019/25 | Img 512 | Train MAE: 6.12 | Val MAE: 6.62 | Val RMSE: 8.81 | Best Trial MAE: 6.54
+Trial 011 stopped early. Best Val MAE: 6.54
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 012 | Epoch 001/25 | Img 512 | Train MAE: 40.49 | Val MAE: 13.03 | Val RMSE: 16.19 | Best Trial MAE: 13.03
+Trial 012 | Epoch 002/25 | Img 512 | Train MAE: 13.56 | Val MAE: 11.90 | Val RMSE: 15.44 | Best Trial MAE: 11.90
+Trial 012 | Epoch 003/25 | Img 512 | Train MAE: 11.81 | Val MAE: 13.83 | Val RMSE: 17.02 | Best Trial MAE: 11.90
+Trial 012 | Epoch 004/25 | Img 512 | Train MAE: 10.59 | Val MAE: 9.31 | Val RMSE: 11.81 | Best Trial MAE: 9.31
+Trial 012 | Epoch 005/25 | Img 512 | Train MAE: 9.43 | Val MAE: 9.57 | Val RMSE: 12.08 | Best Trial MAE: 9.31
+Trial 012 | Epoch 006/25 | Img 512 | Train MAE: 9.02 | Val MAE: 11.71 | Val RMSE: 14.24 | Best Trial MAE: 9.31
+Trial 012 | Epoch 007/25 | Img 512 | Train MAE: 8.42 | Val MAE: 9.88 | Val RMSE: 12.22 | Best Trial MAE: 9.31
+Trial 012 | Epoch 008/25 | Img 512 | Train MAE: 8.10 | Val MAE: 10.06 | Val RMSE: 12.46 | Best Trial MAE: 9.31
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 013 | Epoch 001/25 | Img 512 | Train MAE: 50.51 | Val MAE: 15.82 | Val RMSE: 20.24 | Best Trial MAE: 15.82
+Trial 013 | Epoch 002/25 | Img 512 | Train MAE: 14.92 | Val MAE: 11.83 | Val RMSE: 14.98 | Best Trial MAE: 11.83
+Trial 013 | Epoch 003/25 | Img 512 | Train MAE: 12.03 | Val MAE: 9.78 | Val RMSE: 12.52 | Best Trial MAE: 9.78
+Trial 013 | Epoch 004/25 | Img 512 | Train MAE: 11.30 | Val MAE: 11.13 | Val RMSE: 14.10 | Best Trial MAE: 9.78
+Trial 013 | Epoch 005/25 | Img 512 | Train MAE: 9.82 | Val MAE: 9.25 | Val RMSE: 11.70 | Best Trial MAE: 9.25
+Trial 013 | Epoch 006/25 | Img 512 | Train MAE: 9.84 | Val MAE: 8.46 | Val RMSE: 10.96 | Best Trial MAE: 8.46
+Trial 013 | Epoch 007/25 | Img 512 | Train MAE: 9.05 | Val MAE: 7.94 | Val RMSE: 10.25 | Best Trial MAE: 7.94
+Trial 013 | Epoch 008/25 | Img 512 | Train MAE: 8.83 | Val MAE: 9.25 | Val RMSE: 11.81 | Best Trial MAE: 7.94
+Trial 013 | Epoch 009/25 | Img 512 | Train MAE: 8.43 | Val MAE: 8.38 | Val RMSE: 10.81 | Best Trial MAE: 7.94
+Trial 013 | Epoch 010/25 | Img 512 | Train MAE: 7.93 | Val MAE: 8.04 | Val RMSE: 10.51 | Best Trial MAE: 7.94
+Trial 013 | Epoch 011/25 | Img 512 | Train MAE: 7.61 | Val MAE: 8.93 | Val RMSE: 11.37 | Best Trial MAE: 7.94
+Trial 013 | Epoch 012/25 | Img 512 | Train MAE: 7.38 | Val MAE: 7.76 | Val RMSE: 10.01 | Best Trial MAE: 7.76
+Trial 013 | Epoch 013/25 | Img 512 | Train MAE: 7.26 | Val MAE: 7.79 | Val RMSE: 10.05 | Best Trial MAE: 7.76
+Trial 013 | Epoch 014/25 | Img 512 | Train MAE: 7.07 | Val MAE: 7.24 | Val RMSE: 9.45 | Best Trial MAE: 7.24
+Trial 013 | Epoch 015/25 | Img 512 | Train MAE: 6.96 | Val MAE: 6.97 | Val RMSE: 9.07 | Best Trial MAE: 6.97
+Trial 013 | Epoch 016/25 | Img 512 | Train MAE: 6.87 | Val MAE: 6.88 | Val RMSE: 8.99 | Best Trial MAE: 6.88
+Trial 013 | Epoch 017/25 | Img 512 | Train MAE: 6.71 | Val MAE: 7.87 | Val RMSE: 10.09 | Best Trial MAE: 6.88
+Trial 013 | Epoch 018/25 | Img 512 | Train MAE: 6.66 | Val MAE: 6.81 | Val RMSE: 8.94 | Best Trial MAE: 6.81
+Trial 013 | Epoch 019/25 | Img 512 | Train MAE: 6.54 | Val MAE: 6.86 | Val RMSE: 8.94 | Best Trial MAE: 6.81
+Trial 013 | Epoch 020/25 | Img 512 | Train MAE: 6.46 | Val MAE: 7.18 | Val RMSE: 9.31 | Best Trial MAE: 6.81
+Trial 013 | Epoch 021/25 | Img 512 | Train MAE: 6.40 | Val MAE: 7.22 | Val RMSE: 9.45 | Best Trial MAE: 6.81
+Trial 013 | Epoch 022/25 | Img 512 | Train MAE: 6.38 | Val MAE: 7.02 | Val RMSE: 9.19 | Best Trial MAE: 6.81
+Trial 013 | Epoch 023/25 | Img 512 | Train MAE: 6.33 | Val MAE: 7.30 | Val RMSE: 9.48 | Best Trial MAE: 6.81
+Trial 013 stopped early. Best Val MAE: 6.81
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 014 | Epoch 001/25 | Img 512 | Train MAE: 41.14 | Val MAE: 13.94 | Val RMSE: 17.59 | Best Trial MAE: 13.94
+Trial 014 | Epoch 002/25 | Img 512 | Train MAE: 14.48 | Val MAE: 10.75 | Val RMSE: 13.60 | Best Trial MAE: 10.75
+Trial 014 | Epoch 003/25 | Img 512 | Train MAE: 11.49 | Val MAE: 9.67 | Val RMSE: 12.43 | Best Trial MAE: 9.67
+Trial 014 | Epoch 004/25 | Img 512 | Train MAE: 10.61 | Val MAE: 10.83 | Val RMSE: 13.64 | Best Trial MAE: 9.67
+Trial 014 | Epoch 005/25 | Img 512 | Train MAE: 9.79 | Val MAE: 9.25 | Val RMSE: 12.01 | Best Trial MAE: 9.25
+Trial 014 | Epoch 006/25 | Img 512 | Train MAE: 9.41 | Val MAE: 8.66 | Val RMSE: 11.21 | Best Trial MAE: 8.66
+Trial 014 | Epoch 007/25 | Img 512 | Train MAE: 8.60 | Val MAE: 7.60 | Val RMSE: 9.88 | Best Trial MAE: 7.60
+Trial 014 | Epoch 008/25 | Img 512 | Train MAE: 8.43 | Val MAE: 7.55 | Val RMSE: 9.93 | Best Trial MAE: 7.55
+Trial 014 | Epoch 009/25 | Img 512 | Train MAE: 8.02 | Val MAE: 7.92 | Val RMSE: 10.17 | Best Trial MAE: 7.55
+Trial 014 | Epoch 010/25 | Img 512 | Train MAE: 7.43 | Val MAE: 6.93 | Val RMSE: 9.10 | Best Trial MAE: 6.93
+Trial 014 | Epoch 011/25 | Img 512 | Train MAE: 7.45 | Val MAE: 8.94 | Val RMSE: 11.18 | Best Trial MAE: 6.93
+Trial 014 | Epoch 012/25 | Img 512 | Train MAE: 7.06 | Val MAE: 7.37 | Val RMSE: 9.60 | Best Trial MAE: 6.93
+Trial 014 | Epoch 013/25 | Img 512 | Train MAE: 7.06 | Val MAE: 7.90 | Val RMSE: 10.11 | Best Trial MAE: 6.93
+Trial 014 | Epoch 014/25 | Img 512 | Train MAE: 6.88 | Val MAE: 7.10 | Val RMSE: 9.26 | Best Trial MAE: 6.93
+Trial 014 | Epoch 015/25 | Img 512 | Train MAE: 6.78 | Val MAE: 7.52 | Val RMSE: 9.77 | Best Trial MAE: 6.93
+Trial 014 stopped early. Best Val MAE: 6.93
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 015 | Epoch 001/25 | Img 512 | Train MAE: 52.20 | Val MAE: 15.74 | Val RMSE: 20.05 | Best Trial MAE: 15.74
+Trial 015 | Epoch 002/25 | Img 512 | Train MAE: 15.19 | Val MAE: 10.97 | Val RMSE: 13.75 | Best Trial MAE: 10.97
+Trial 015 | Epoch 003/25 | Img 512 | Train MAE: 12.06 | Val MAE: 9.83 | Val RMSE: 12.43 | Best Trial MAE: 9.83
+Trial 015 | Epoch 004/25 | Img 512 | Train MAE: 10.93 | Val MAE: 10.29 | Val RMSE: 13.07 | Best Trial MAE: 9.83
+Trial 015 | Epoch 005/25 | Img 512 | Train MAE: 10.29 | Val MAE: 8.95 | Val RMSE: 11.42 | Best Trial MAE: 8.95
+Trial 015 | Epoch 006/25 | Img 512 | Train MAE: 10.10 | Val MAE: 9.43 | Val RMSE: 12.08 | Best Trial MAE: 8.95
+Trial 015 | Epoch 007/25 | Img 512 | Train MAE: 9.28 | Val MAE: 9.27 | Val RMSE: 11.81 | Best Trial MAE: 8.95
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 016 | Epoch 001/25 | Img 512 | Train MAE: 67.45 | Val MAE: 18.94 | Val RMSE: 23.63 | Best Trial MAE: 18.94
+Trial 016 | Epoch 002/25 | Img 512 | Train MAE: 16.76 | Val MAE: 12.16 | Val RMSE: 15.27 | Best Trial MAE: 12.16
+Trial 016 | Epoch 003/25 | Img 512 | Train MAE: 13.26 | Val MAE: 10.59 | Val RMSE: 13.36 | Best Trial MAE: 10.59
+Trial 016 | Epoch 004/25 | Img 512 | Train MAE: 11.85 | Val MAE: 12.06 | Val RMSE: 15.29 | Best Trial MAE: 10.59
+Trial 016 | Epoch 005/25 | Img 512 | Train MAE: 11.16 | Val MAE: 10.51 | Val RMSE: 13.41 | Best Trial MAE: 10.51
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 017 | Epoch 001/25 | Img 512 | Train MAE: 36.90 | Val MAE: 15.13 | Val RMSE: 18.97 | Best Trial MAE: 15.13
+Trial 017 | Epoch 002/25 | Img 512 | Train MAE: 13.19 | Val MAE: 10.66 | Val RMSE: 13.38 | Best Trial MAE: 10.66
+Trial 017 | Epoch 003/25 | Img 512 | Train MAE: 10.93 | Val MAE: 10.24 | Val RMSE: 13.15 | Best Trial MAE: 10.24
+Trial 017 | Epoch 004/25 | Img 512 | Train MAE: 9.84 | Val MAE: 9.69 | Val RMSE: 12.49 | Best Trial MAE: 9.69
+Trial 017 | Epoch 005/25 | Img 512 | Train MAE: 9.06 | Val MAE: 8.28 | Val RMSE: 10.66 | Best Trial MAE: 8.28
+Trial 017 | Epoch 006/25 | Img 512 | Train MAE: 8.37 | Val MAE: 9.20 | Val RMSE: 11.74 | Best Trial MAE: 8.28
+Trial 017 | Epoch 007/25 | Img 512 | Train MAE: 8.30 | Val MAE: 7.41 | Val RMSE: 9.55 | Best Trial MAE: 7.41
+Trial 017 | Epoch 008/25 | Img 512 | Train MAE: 7.85 | Val MAE: 10.02 | Val RMSE: 12.21 | Best Trial MAE: 7.41
+Trial 017 | Epoch 009/25 | Img 512 | Train MAE: 7.57 | Val MAE: 7.04 | Val RMSE: 9.19 | Best Trial MAE: 7.04
+Trial 017 | Epoch 010/25 | Img 512 | Train MAE: 7.14 | Val MAE: 7.09 | Val RMSE: 9.10 | Best Trial MAE: 7.04
+Trial 017 | Epoch 011/25 | Img 512 | Train MAE: 7.29 | Val MAE: 7.84 | Val RMSE: 10.16 | Best Trial MAE: 7.04
+Trial 017 | Epoch 012/25 | Img 512 | Train MAE: 6.67 | Val MAE: 6.93 | Val RMSE: 9.13 | Best Trial MAE: 6.93
+Trial 017 | Epoch 013/25 | Img 512 | Train MAE: 6.71 | Val MAE: 7.07 | Val RMSE: 9.22 | Best Trial MAE: 6.93
+Trial 017 | Epoch 014/25 | Img 512 | Train MAE: 6.41 | Val MAE: 7.23 | Val RMSE: 9.38 | Best Trial MAE: 6.93
+Trial 017 | Epoch 015/25 | Img 512 | Train MAE: 6.37 | Val MAE: 6.64 | Val RMSE: 8.74 | Best Trial MAE: 6.64
+Trial 017 | Epoch 016/25 | Img 512 | Train MAE: 6.23 | Val MAE: 6.49 | Val RMSE: 8.51 | Best Trial MAE: 6.49
+Trial 017 | Epoch 017/25 | Img 512 | Train MAE: 6.11 | Val MAE: 6.54 | Val RMSE: 8.65 | Best Trial MAE: 6.49
+Trial 017 | Epoch 018/25 | Img 512 | Train MAE: 5.93 | Val MAE: 6.76 | Val RMSE: 8.90 | Best Trial MAE: 6.49
+Trial 017 | Epoch 019/25 | Img 512 | Train MAE: 5.88 | Val MAE: 6.56 | Val RMSE: 8.62 | Best Trial MAE: 6.49
+Trial 017 | Epoch 020/25 | Img 512 | Train MAE: 5.79 | Val MAE: 6.65 | Val RMSE: 8.75 | Best Trial MAE: 6.49
+Trial 017 | Epoch 021/25 | Img 512 | Train MAE: 5.75 | Val MAE: 6.53 | Val RMSE: 8.65 | Best Trial MAE: 6.49
+Trial 017 stopped early. Best Val MAE: 6.49
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 018 | Epoch 001/25 | Img 512 | Train MAE: 49.38 | Val MAE: 15.27 | Val RMSE: 19.48 | Best Trial MAE: 15.27
+Trial 018 | Epoch 002/25 | Img 512 | Train MAE: 13.72 | Val MAE: 12.68 | Val RMSE: 15.95 | Best Trial MAE: 12.68
+Trial 018 | Epoch 003/25 | Img 512 | Train MAE: 11.52 | Val MAE: 11.16 | Val RMSE: 14.12 | Best Trial MAE: 11.16
+Trial 018 | Epoch 004/25 | Img 512 | Train MAE: 10.44 | Val MAE: 9.08 | Val RMSE: 11.63 | Best Trial MAE: 9.08
+Trial 018 | Epoch 005/25 | Img 512 | Train MAE: 9.60 | Val MAE: 8.55 | Val RMSE: 11.03 | Best Trial MAE: 8.55
+Trial 018 | Epoch 006/25 | Img 512 | Train MAE: 9.26 | Val MAE: 10.24 | Val RMSE: 12.96 | Best Trial MAE: 8.55
+Trial 018 | Epoch 007/25 | Img 512 | Train MAE: 9.22 | Val MAE: 8.59 | Val RMSE: 11.02 | Best Trial MAE: 8.55
+Saved HPO partial result to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/best_hpo_result_partial.json
+Saved HPO partial trials to: /storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_trials_partial.csv
+Trial 019 | Epoch 001/25 | Img 512 | Train MAE: 37.62 | Val MAE: 12.90 | Val RMSE: 16.37 | Best Trial MAE: 12.90
+Trial 019 | Epoch 002/25 | Img 512 | Train MAE: 13.26 | Val MAE: 11.55 | Val RMSE: 14.77 | Best Trial MAE: 11.55

@@ -22,9 +22,9 @@ from tqdm import tqdm
 # CONFIG
 # ============================================================
 SCRIPT_DIR = Path(__file__).resolve().parent
-XRAY_DIR = SCRIPT_DIR / "archive" / "boneage-training-dataset"
+XRAY_DIR = SCRIPT_DIR / "archive" / "boneage-test-dataset"
 MASK_DIR = SCRIPT_DIR / "Tensormask"
-OUTPUT_DIR = SCRIPT_DIR / "overlayed_RSNA_dataset"
+OUTPUT_DIR = SCRIPT_DIR / "overlayed_RSNA_testset"
 
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 

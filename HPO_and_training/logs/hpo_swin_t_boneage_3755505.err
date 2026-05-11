@@ -1,0 +1,121 @@
+
+Currently Loaded Modules:
+  1) GCCcore/12.3.0                        8) SQLite/3.42.0-GCCcore-12.3.0
+  2) binutils/2.40-GCCcore-12.3.0          9) XZ/5.4.2-GCCcore-12.3.0
+  3) bzip2/1.0.8-GCCcore-12.3.0           10) libffi/3.4.4-GCCcore-12.3.0
+  4) ncurses/.6.4-GCCcore-12.3.0     (H)  11) OpenSSL/1.1
+  5) libreadline/.8.2-GCCcore-12.3.0 (H)  12) Python/3.11.3-GCCcore-12.3.0
+  6) zlib/.1.2.13-GCCcore-12.3.0     (H)  13) CUDA/12.6.0
+  7) Tcl/.8.6.13-GCCcore-12.3.0      (H)
+
+  Where:
+   H:  Hidden Module
+
+ 
+
+[I 2026-05-10 01:39:11,944] A new study created in RDB with name: hpo_swin_t_boneage_HPOV1
+Training:   0%|          | 0/250 [00:00<?, ?it/s]                                                 [W 2026-05-10 01:39:26,724] Trial 0 failed with parameters: {'image_size': 1024, 'backbone_lr': 1e-05, 'head_lr_multiplier': 5, 'weight_decay': 1e-05, 'drop_path': 0.1, 'head_dropout': 0.1, 'hidden_dim': 1024, 'smooth_l1_beta': 5.0, 'augmentation_preset': 'medium'} because of the following error: AssertionError("Input height (1024) doesn't match model (224).").
+Traceback (most recent call last):
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/optuna/study/_optimize.py", line 206, in _run_trial
+    value_or_values = func(trial)
+                      ^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/hpo_swin_t_boneage.py", line 975, in <lambda>
+    lambda trial: objective(
+                  ^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/hpo_swin_t_boneage.py", line 559, in objective
+    train_mae, loader_iter = train_one_epoch(
+                             ^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/hpo_swin_t_boneage.py", line 356, in train_one_epoch
+    preds = model(images, males)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/hpo_swin_t_boneage.py", line 218, in forward
+    features = self.backbone(image)
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/timm/models/swin_transformer.py", line 1005, in forward
+    x = self.forward_features(x)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/timm/models/swin_transformer.py", line 979, in forward_features
+    x = self.patch_embed(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/timm/layers/patch_embed.py", line 121, in forward
+    _assert(H == self.img_size[0], f"Input height ({H}) doesn't match model ({self.img_size[0]}).")
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/__init__.py", line 2254, in _assert
+    raise AssertionError(message)
+AssertionError: Input height (1024) doesn't match model (224).
+[W 2026-05-10 01:39:26,827] Trial 0 failed with value None.
+Traceback (most recent call last):
+  File "/storage/homefs/eb19p026/DL_Project/hpo_swin_t_boneage.py", line 1034, in <module>
+    run_hpo(args)
+  File "/storage/homefs/eb19p026/DL_Project/hpo_swin_t_boneage.py", line 974, in run_hpo
+    study.optimize(
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/optuna/study/study.py", line 490, in optimize
+    _optimize(
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/optuna/study/_optimize.py", line 68, in _optimize
+    _optimize_sequential(
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/optuna/study/_optimize.py", line 165, in _optimize_sequential
+    frozen_trial_id = _run_trial(study, func, catch)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/optuna/study/_optimize.py", line 263, in _run_trial
+    raise func_err
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/optuna/study/_optimize.py", line 206, in _run_trial
+    value_or_values = func(trial)
+                      ^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/hpo_swin_t_boneage.py", line 975, in <lambda>
+    lambda trial: objective(
+                  ^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/hpo_swin_t_boneage.py", line 559, in objective
+    train_mae, loader_iter = train_one_epoch(
+                             ^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/hpo_swin_t_boneage.py", line 356, in train_one_epoch
+    preds = model(images, males)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/hpo_swin_t_boneage.py", line 218, in forward
+    features = self.backbone(image)
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/timm/models/swin_transformer.py", line 1005, in forward
+    x = self.forward_features(x)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/timm/models/swin_transformer.py", line 979, in forward_features
+    x = self.patch_embed(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/timm/layers/patch_embed.py", line 121, in forward
+    _assert(H == self.img_size[0], f"Input height ({H}) doesn't match model ({self.img_size[0]}).")
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/__init__.py", line 2254, in _assert
+    raise AssertionError(message)
+AssertionError: Input height (1024) doesn't match model (224).

@@ -1,0 +1,123 @@
+{
+    "status": "partial",
+    "completed_trials": 11,
+    "pruned_trials": 8,
+    "failed_trials": 0,
+    "running_trials": 0,
+    "total_trials_recorded": 19,
+    "hpo_config": {
+        "n_trials_target": 30,
+        "hpo_epochs": 25,
+        "hpo_steps_per_epoch": 250,
+        "hpo_patience": 5,
+        "batch_size": 32,
+        "grad_accum_steps": 1,
+        "effective_batch_size": 32,
+        "num_workers": 8,
+        "model_name": "convnextv2_tiny",
+        "val_size": 0.15,
+        "seed": 42,
+        "use_amp": true,
+        "max_grad_norm": 1.0,
+        "warmup_epochs": 2,
+        "project_dir": "/storage/homefs/eb19p026/DL_Project",
+        "csv_path": "/storage/homefs/eb19p026/DL_Project/boneage-training-dataset.csv",
+        "image_dir": "/storage/homefs/eb19p026/DL_Project/cropped_overlayed_RSNA_dataset_1024x1024",
+        "storage": "sqlite:////storage/homefs/eb19p026/DL_Project/hpo_convnextv2_tiny_boneage_HPOV1/optuna_study.db",
+        "study_name": "hpo_convnextv2_tiny_boneage_HPOV1"
+    },
+    "search_space": {
+        "image_size": [
+            512,
+            1024
+        ],
+        "backbone_lr": "log-uniform [2e-6, 3e-5]",
+        "head_lr_multiplier": [
+            3,
+            5,
+            8,
+            10
+        ],
+        "head_lr": "derived as backbone_lr * head_lr_multiplier",
+        "weight_decay": "log-uniform [1e-6, 1e-4]",
+        "drop_path": [
+            0.0,
+            0.05,
+            0.1,
+            0.15,
+            0.2
+        ],
+        "head_dropout": [
+            0.0,
+            0.1,
+            0.2,
+            0.3
+        ],
+        "hidden_dim": [
+            512,
+            1024,
+            2048
+        ],
+        "smooth_l1_beta": [
+            1.0,
+            3.0,
+            5.0,
+            7.0,
+            10.0
+        ],
+        "augmentation_preset": [
+            "none",
+            "light",
+            "medium",
+            "current"
+        ]
+    },
+    "augmentation_presets": {
+        "none": {
+            "degrees": 0,
+            "translate": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ]
+        },
+        "light": {
+            "degrees": 3,
+            "translate": 0.03,
+            "scale": [
+                0.97,
+                1.03
+            ]
+        },
+        "medium": {
+            "degrees": 5,
+            "translate": 0.05,
+            "scale": [
+                0.95,
+                1.05
+            ]
+        },
+        "current": {
+            "degrees": 5,
+            "translate": 0.1,
+            "scale": [
+                0.9,
+                1.1
+            ]
+        }
+    },
+    "best_val_mae": 6.4879255294799805,
+    "best_trial_number": 17,
+    "best_params": {
+        "image_size": 512,
+        "backbone_lr": 2.890293271326065e-05,
+        "head_lr_multiplier": 10,
+        "weight_decay": 2.3686574806450328e-05,
+        "drop_path": 0.1,
+        "head_dropout": 0.0,
+        "hidden_dim": 2048,
+        "smooth_l1_beta": 7.0,
+        "augmentation_preset": "light",
+        "head_lr": 0.0002890293271326065
+    }
+}

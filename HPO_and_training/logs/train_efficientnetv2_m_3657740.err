@@ -1,0 +1,86 @@
+
+Currently Loaded Modules:
+  1) GCCcore/12.3.0                        8) SQLite/3.42.0-GCCcore-12.3.0
+  2) binutils/2.40-GCCcore-12.3.0          9) XZ/5.4.2-GCCcore-12.3.0
+  3) bzip2/1.0.8-GCCcore-12.3.0           10) libffi/3.4.4-GCCcore-12.3.0
+  4) ncurses/.6.4-GCCcore-12.3.0     (H)  11) OpenSSL/1.1
+  5) libreadline/.8.2-GCCcore-12.3.0 (H)  12) Python/3.11.3-GCCcore-12.3.0
+  6) zlib/.1.2.13-GCCcore-12.3.0     (H)  13) CUDA/12.6.0
+  7) Tcl/.8.6.13-GCCcore-12.3.0      (H)
+
+  Where:
+   H:  Hidden Module
+
+ 
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Training:   0%|          | 0/669 [00:00<?, ?it/s]                                                 Traceback (most recent call last):
+  File "/storage/homefs/eb19p026/DL_Project/efficientnetv2-m_training.py", line 893, in <module>
+    main()
+  File "/storage/homefs/eb19p026/DL_Project/efficientnetv2-m_training.py", line 788, in main
+    train_mae, loader_iter = train_one_epoch(
+                             ^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/efficientnetv2-m_training.py", line 357, in train_one_epoch
+    preds = model(images, males)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/efficientnetv2-m_training.py", line 201, in forward
+    features = self.backbone(image)
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/timm/models/efficientnet.py", line 348, in forward
+    x = self.forward_features(x)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/timm/models/efficientnet.py", line 326, in forward_features
+    x = self.blocks(x)
+        ^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/timm/models/_efficientnet_blocks.py", line 332, in forward
+    x = self.bn2(x)
+        ^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/timm/layers/norm_act.py", line 136, in forward
+    x = F.batch_norm(
+        ^^^^^^^^^^^^^
+  File "/storage/homefs/eb19p026/DL_Project/venv/lib/python3.11/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+           ^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 132.00 MiB. GPU 0 has a total capacity of 22.15 GiB of which 50.00 MiB is free. Including non-PyTorch memory, this process has 22.09 GiB memory in use. Of the allocated memory 21.59 GiB is allocated by PyTorch, and 57.28 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

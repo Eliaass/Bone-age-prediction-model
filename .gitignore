@@ -1,1 +1,10 @@
 archive/
+Tensormask/
+overlayed_RSNA_dataset/
+overlayed_RSNA_testset/
+segmentation.py/
+cropped_overlayed_RSNA_testset_1024x1024/
+cropped_overlayed_RSNA_testset_512x512/
+cropped_overlayed_RSNA_dataset_1024x1024/
+cropped_overlayed_RSNA_dataset_512x512/
+

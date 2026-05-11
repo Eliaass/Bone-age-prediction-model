@@ -10,10 +10,10 @@ from tqdm import tqdm
 # CONFIGURATION
 # ============================================================
 
-INPUT_DIR = "overlayed_RSNA_dataset"
-OUTPUT_DIR = "cropped_overlayed_RSNA_dataset_512x512"
+INPUT_DIR = "overlayed_RSNA_testset"
+OUTPUT_DIR = "cropped_overlayed_RSNA_testset_1024x1024"
 
-OUTPUT_SIZE = 512          # Final output image size (square)
+OUTPUT_SIZE = 1024         # Final output image size (square)
 THRESHOLD = 5              # Pixel values > threshold are considered foreground
 MARGIN = 0.01              # 1% margin around the hand bounding box
 SAVE_FORMAT = None         # None = keep original extension, or use "png"/"jpg"
